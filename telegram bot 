@@ -1,0 +1,15 @@
+  GNU nano 8.6              telegrambot.py
+import telebot
+
+TOKEN = "BOT YOKEN"
+bot = telebot.TeleBot(TOKEN)
+
+@bot.message_handler(commands=['start'])
+def start(message):
+    bot.reply_to(message, "Selam dayı 😎 Bot çalışıyor!")
+
+@bot.message_handler(func=lambda m: True)
+def echo(message):
+    bot.reply_to(message, message.text)
+
+bot.polling()
